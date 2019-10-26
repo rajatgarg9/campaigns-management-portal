@@ -98,7 +98,7 @@ function CampaignTable({ campaignList, className, handleRescheduleCampaign }) {
                     >
                       <Calender
                         onDateSelection={handleRescheduleCampaign}
-                        propsList={[index]}
+                        propsList={[id]}
                         theme="fixedTop"
                         activeDate={date}
                       />

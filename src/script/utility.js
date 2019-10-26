@@ -50,7 +50,7 @@ export function dayDifferenceValueHandler(daysDifferenceNum) {
   if (daysDifferenceNum > 0) {
     return `${daysDifferenceNum} days ahead`;
   }
-  if (daysDifferenceNum > 0) {
+  if (daysDifferenceNum < 0) {
     return `${Math.abs(daysDifferenceNum)} days ago`;
   }
 

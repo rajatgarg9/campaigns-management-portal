@@ -34,14 +34,23 @@ function CampaignManagement({ className }) {
     initializeCampaignList(campaignListData)
   );
 
-  function handleRescheduleCampaign(newDate, index = '') {
-    const newCampaignList = [...campaignList];
+  function handleRescheduleCampaign(newDate, actionId = '') {
+    const newCampaignList = [];
 
-    newCampaignList[index] = {
-      ...newCampaignList[index],
-      date: dateFormatSetter(newDate, 'YYYY-MM-DD'),
-      daysDifference: daysCalculator(newDate, new Date())
-    };
+    for (let i = 0; i < campaignList.length; ++i) {
+      const { id } = campaignList[i];
+      if (id === actionId) {
+        newCampaignList.push({
+          ...campaignList[i],
+          date: dateFormatSetter(newDate, 'YYYY-MM-DD'),
+          daysDifference: daysCalculator(newDate, new Date())
+        });
+      } else {
+        newCampaignList.push({
+          ...campaignList[i]
+        });
+      }
+    }
 
     setCampaignList(newCampaignList);
   }
@@ -50,10 +59,10 @@ function CampaignManagement({ className }) {
     const actionTypeList = ['future', 'live', 'past'];
     return tableList.filter(({ daysDifference }) => {
       if (actionTypeList[0] === actionType) {
-        return daysDifference > 0;
+        return daysDifference < 0;
       }
       if (actionTypeList[2] === actionType) {
-        return daysDifference < 0;
+        return daysDifference > 0;
       }
       return daysDifference === 0;
     });

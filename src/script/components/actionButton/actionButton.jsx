@@ -15,11 +15,11 @@ function ActionButton({ title, imagePath, isDisable, children, className }) {
 
   useEffect(() => {
     if (isChildVisible) {
-      document.addEventListener('click', handleoutsideClick);
+      document.addEventListener('click', handleoutsideClick, true);
     }
 
     return () => {
-      document.removeEventListener('click', handleoutsideClick);
+      document.removeEventListener('click', handleoutsideClick, true);
     };
   }, [isChildVisible]);
 
