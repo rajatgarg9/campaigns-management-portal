@@ -39,9 +39,9 @@
 	&__logoTxt {
 		@include body-1;
 
-		display: flex;
 		flex-direction: column;
 		text-align: right;
+		display: none;
 	}
 
 	&__subTxt {
@@ -52,10 +52,13 @@
 
 	&__rightSec {
 		display: flex;
+		align-items: center;
 	}
 
 	&__appState {
 		@include body-1;
+
+		display: none;
 	}
 
 	&__actionButton {
@@ -82,10 +85,22 @@
 	}
 }
 
-@include desktop {
+@include tablet {
 	.hadr {
 		&__logoImgWrap {
 			width: 70px;
+		}
+
+		&__logoTxt {
+			display: flex;
+		}
+
+		&__appState {
+			display: block;
+		}
+
+		&__dropDown {
+			margin-left: 20px;
 		}
 	}
 }

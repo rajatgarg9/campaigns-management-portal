@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import './campaingnSummryCard.scss';
 
@@ -14,6 +15,7 @@ function CampaingnSummryCard({
   price,
   handlePopupClose
 }) {
+  const globalKeys = useSelector(state => state.siteDetails.globalKeys);
   function detailItem(heading = '', value = '') {
     return (
       <p className="cmpignSmryCrd__row">
@@ -25,7 +27,7 @@ function CampaingnSummryCard({
 
   return (
     <div className="cmpignSmryCrd">
-      <h3 className="cmpignSmryCrd__hdng">Campaign Summary</h3>
+      <h3 className="cmpignSmryCrd__hdng">{globalKeys.campaignSummary}</h3>
       <button
         type="button"
         className="cmpignSmryCrd__closBtnWrap"
@@ -38,14 +40,19 @@ function CampaingnSummryCard({
           <img className="cmpignSmryCrd__cmpignImg" src={src} alt={alt} />
         </div>
         <div>
-          {detailItem('Campaign Name', name)}
-          {detailItem('Campaign Date', date)}
+          {detailItem(globalKeys.campaignName, name)}
+          {detailItem(globalKeys.campaignDate, date)}
           {detailItem(
-            'Campaign Days Difference',
-            dayDifferenceValueHandler(daysDifference)
+            globalKeys.campaignDaysDifference,
+            dayDifferenceValueHandler(
+              daysDifference,
+              globalKeys.daysAgo,
+              globalKeys.daysAhead,
+              globalKeys.today
+            )
           )}
-          {detailItem('Campaign Place', location)}
-          {detailItem('Campaign Price', price)}
+          {detailItem(globalKeys.campaignPlace, location)}
+          {detailItem(globalKeys.campaignPrice, price)}
         </div>
       </div>
     </div>

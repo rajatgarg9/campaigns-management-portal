@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import ActionButton from 'Components/actionButton/actionButton.jsx';
 import Calender from 'Components/calender/calender.jsx';
@@ -12,6 +13,8 @@ import { dayDifferenceValueHandler } from 'Scripts/utility.js';
 
 function CampaignTable({ campaignList, className, handleRescheduleCampaign }) {
   const [clickedRowIndex, setClickedRowIndex] = useState(null);
+  const globalKeys = useSelector(state => state.siteDetails.globalKeys);
+
   if (campaignList.length === 0) {
     return null;
   }
@@ -21,10 +24,10 @@ function CampaignTable({ campaignList, className, handleRescheduleCampaign }) {
       <table className="cmpignTble__tble">
         <thead className="cmpignTble__thead">
           <tr className="cmpignTble__row">
-            <th className="cmpignTble__col">DATE</th>
-            <th className="cmpignTble__col">CAMPAIGN</th>
-            <th className="cmpignTble__col">VIEW</th>
-            <th className="cmpignTble__col">ACTIONS</th>
+            <th className="cmpignTble__col">{globalKeys.date}</th>
+            <th className="cmpignTble__col">{globalKeys.campaign}</th>
+            <th className="cmpignTble__col">{globalKeys.view}</th>
+            <th className="cmpignTble__col">{globalKeys.actions}</th>
           </tr>
         </thead>
         <tbody>
@@ -47,7 +50,12 @@ function CampaignTable({ campaignList, className, handleRescheduleCampaign }) {
                   <div className="cmpignTble__dateDetalWrap">
                     <span className="cmpignTble__date">{date}</span>
                     <span className="cmpignTble__daysDiff">
-                      {dayDifferenceValueHandler(daysDifference)}
+                      {dayDifferenceValueHandler(
+                        daysDifference,
+                        globalKeys.daysAgo,
+                        globalKeys.daysAhead,
+                        globalKeys.today
+                      )}
                     </span>
                   </div>
                 </td>
@@ -72,26 +80,26 @@ function CampaignTable({ campaignList, className, handleRescheduleCampaign }) {
                       $<span className="cmpignTble__viewCurrencyPlus">+</span>
                     </span>
                     <span className="cmpignTble__viewTxt">
-                      VIEW <br /> PRICING
+                      {globalKeys.view} <br /> {globalKeys.pricing}
                     </span>
                   </div>
                 </td>
                 <td className="cmpignTble__col">
                   <div className="cmpignTble__actionsWrap">
                     <ActionButton
-                      title="CSV"
+                      title={globalKeys.csv}
                       imagePath="images/csvIcon.png"
                       className="cmpignTble__actionsBtnWrap"
                       isDisable
                     />
                     <ActionButton
-                      title="REPORT"
+                      title={globalKeys.report}
                       imagePath="images/reportStatusIcon.jpeg"
                       className="cmpignTble__actionsBtnWrap"
                       isDisable
                     />
                     <ActionButton
-                      title="SCHEDULE AGAIN"
+                      title={globalKeys.scheduleAgain}
                       imagePath="images/calenderIcon.jpeg"
                       className="cmpignTble__actionsBtnWrap"
                       isDisable={false}

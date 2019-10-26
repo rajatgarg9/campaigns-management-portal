@@ -1,0 +1,52 @@
+/* eslint-disable import/prefer-default-export */
+
+export const globalKeys = {
+  en: {
+    manage: 'Manage',
+    campaigns: 'Campaigns',
+    date: 'date',
+    campaign: 'campaign',
+    view: 'view',
+    actions: 'actions',
+    pricing: 'pricing',
+    csv: 'csv',
+    report: 'report',
+    scheduleAgain: 'schedule again',
+    daysAgo: 'days ago',
+    daysAhead: 'days ahead',
+    today: 'today',
+    campaignSummary: 'Campaign Summary',
+    spotlight: 'Spotlight',
+    byBlueStacks: 'by BlueStacks',
+    beta: 'BETA',
+    campaignName: 'Campaign Name',
+    campaignDate: 'Campaign Date',
+    campaignDaysDifference: 'Campaign Days Difference',
+    campaignPlace: 'Campaign Place',
+    campaignPrice: 'Campaign Price'
+  },
+  ja: {
+    manage: '管理する',
+    campaigns: 'キャンペーン',
+    date: '日付',
+    campaign: 'キャンペーン',
+    view: '見る',
+    actions: '行動',
+    pricing: '価格設定',
+    csv: 'csv',
+    report: '報告書',
+    scheduleAgain: '再びスケジュール',
+    daysAgo: '数日前',
+    daysAhead: '数日先',
+    today: '今日',
+    campaignSummary: 'キャンペーン概要',
+    spotlight: 'スポットライト',
+    byBlueStacks: 'BlueStacksより',
+    beta: 'ベータ',
+    campaignName: 'キャンペーン名',
+    campaignDate: 'キャンペーン日',
+    campaignDaysDifference: 'キャンペーン日の差',
+    campaignPlace: 'キャンペーン場所',
+    campaignPrice: 'キャンペーン価格'
+  }
+};

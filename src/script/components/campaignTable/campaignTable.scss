@@ -15,6 +15,7 @@
 	&__thead {
 		background-color: $grey1;
 		text-align: left;
+		text-transform: uppercase;
 	}
 
 	&__col {
@@ -92,6 +93,7 @@
 		text-align: center;
 		margin-top: 5px;
 		color: $blue1;
+		text-transform: uppercase;
 	}
 
 	&__actionsWrap {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import Calendar from 'react-calendar';
 
@@ -13,6 +14,7 @@ function Calender({
   activeDate
 }) {
   const [date, setDate] = useState(new Date(activeDate));
+  const language = useSelector(state => state.siteDetails.language);
 
   function onChange(newDate) {
     setDate(newDate);
@@ -25,6 +27,7 @@ function Calender({
       onChange={onChange}
       value={date}
       className={theme ? `react-calendar--${theme}` : ''}
+      locale={language}
     />
   );
 }

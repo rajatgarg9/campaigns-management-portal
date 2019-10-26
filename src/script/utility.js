@@ -46,13 +46,18 @@ export function dateFormatSetter(actionDate, dateFormat) {
   return null;
 }
 
-export function dayDifferenceValueHandler(daysDifferenceNum) {
+export function dayDifferenceValueHandler(
+  daysDifferenceNum,
+  daysAgoKey,
+  daysAheadKey,
+  todayKey
+) {
   if (daysDifferenceNum > 0) {
-    return `${daysDifferenceNum} days ago`;
+    return `${daysDifferenceNum} ${daysAgoKey}`;
   }
   if (daysDifferenceNum < 0) {
-    return `${Math.abs(daysDifferenceNum)} days ahead`;
+    return `${Math.abs(daysDifferenceNum)} ${daysAheadKey}`;
   }
 
-  return `Today`;
+  return todayKey;
 }

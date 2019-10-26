@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import Tabs from 'Components/tabs/tabs.jsx';
 import CampaignTable from 'Components/campaignTable/campaignTable.jsx';
@@ -14,6 +15,8 @@ import {
 } from 'Data/campaignManagementData.js';
 
 function CampaignManagement({ className }) {
+  const language = useSelector(state => state.siteDetails.language);
+  const globalKeys = useSelector(state => state.siteDetails.globalKeys);
   function initializeCampaignList(list) {
     const newList = [];
 
@@ -31,8 +34,12 @@ function CampaignManagement({ className }) {
   }
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const [campaignList, setCampaignList] = useState(
-    initializeCampaignList(campaignListData)
+    initializeCampaignList(campaignListData[language])
   );
+
+  useEffect(() => {
+    setCampaignList(initializeCampaignList(campaignListData[language]));
+  }, [language]);
 
   function handleRescheduleCampaign(newDate, actionId = '') {
     const newCampaignList = [];
@@ -72,10 +79,11 @@ function CampaignManagement({ className }) {
     <div className={`cmpignMnagmnt ${className}`}>
       <div className="cmpignMnagmnt__cntntWrap">
         <h2 className="cmpignMnagmnt__hdng">
-          <span className="cmpignMnagmnt__hdngSubTxt">Manage</span> Campaigns
+          <span className="cmpignMnagmnt__hdngSubTxt">{globalKeys.manage}</span>{' '}
+          {globalKeys.campaigns}
         </h2>
         <Tabs
-          list={tabList}
+          list={tabList[language]}
           selectedTabIndex={selectedTabIndex}
           handleTabSelection={index => setSelectedTabIndex(index)}
           className="cmpignMnagmnt__tabs"
@@ -83,7 +91,7 @@ function CampaignManagement({ className }) {
         <CampaignTable
           campaignList={currentTabTable(
             campaignList,
-            tabList[selectedTabIndex].type
+            tabList[language][selectedTabIndex].type
           )}
           className="cmpignMnagmnt__cmpignTble"
           handleRescheduleCampaign={handleRescheduleCampaign}
