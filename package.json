@@ -2,7 +2,7 @@
   "name": "campaigns-management-portal",
   "version": "1.0.0",
   "description": "It will show all the campaigns and and also we can reschedule it.",
-  "homepage": "https://rajatgarg9.github.io/repository-name",
+  "homepage": "https://rajatgarg9.github.io/campaigns-management-portal",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.config.dev.js",
