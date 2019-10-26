@@ -48,10 +48,10 @@ export function dateFormatSetter(actionDate, dateFormat) {
 
 export function dayDifferenceValueHandler(daysDifferenceNum) {
   if (daysDifferenceNum > 0) {
-    return `${daysDifferenceNum} days ahead`;
+    return `${daysDifferenceNum} days ago`;
   }
   if (daysDifferenceNum < 0) {
-    return `${Math.abs(daysDifferenceNum)} days ago`;
+    return `${Math.abs(daysDifferenceNum)} days ahead`;
   }
 
   return `Today`;
