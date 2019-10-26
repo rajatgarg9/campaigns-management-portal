@@ -1,0 +1,12 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "useBuiltIns": "usage", // need to install @babel/polyfill
+                "corejs": "3.0.1"
+            }
+        ], "@babel/preset-react"
+    ],
+    "plugins": ["@babel/plugin-syntax-dynamic-import"]
+}

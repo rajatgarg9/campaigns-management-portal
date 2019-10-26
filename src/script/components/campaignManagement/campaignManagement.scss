@@ -1,0 +1,40 @@
+@import 'StyleSheets/base/_variables.scss';
+@import 'StyleSheets/config/_mixin.scss';
+
+.cmpignMnagmnt {
+	&__hdng {
+		@include heading-1;
+
+		color: $blue1;
+		text-align: center;
+	}
+
+	&__cntntWrap {
+		@include contentWrap;
+	}
+
+	&__hdngSubTxt {
+		@include body-2;
+	}
+
+	&__tabs {
+		margin-top: 25px;
+	}
+
+	&__cmpignTble {
+		margin-top: 20px;
+		overflow: auto;
+	}
+
+	&__cmpignTble .cmpignTble__tble {
+		margin: 0 auto;
+	}
+}
+
+@include desktop {
+	.cmpignMnagmnt {
+		&__cmpignTble {
+			overflow: visible;
+		}
+	}
+}

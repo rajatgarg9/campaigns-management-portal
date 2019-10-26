@@ -1,0 +1,166 @@
+@mixin heading-1 {
+	font-family: sans-serif, 'Helvetica Neue', Helvetica, Arial;
+	font-size: 20px;
+	font-weight: 700;
+
+	@include desktop {
+		font-size: 30px;
+	}
+}
+
+@mixin heading-2 {
+	font-family: sans-serif, 'Helvetica Neue', Helvetica, Arial;
+	font-size: 14px;
+	font-weight: 700;
+
+	@include desktop {
+		font-size: 18px;
+	}
+}
+
+@mixin heading-3 {
+	font-family: sans-serif, 'Helvetica Neue', Helvetica, Arial;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+@mixin heading-4 {
+	font-family: sans-serif, 'Helvetica Neue', Helvetica, Arial;
+	font-size: 12px;
+	font-weight: 700;
+
+	@include desktop {
+		font-size: 14px;
+	}
+}
+
+@mixin body-1 {
+	font-family: sans-serif, 'Helvetica Neue', Helvetica, Arial;
+	font-size: 25px;
+	font-weight: 300;
+
+	@include desktop {
+		font-size: 40px;
+	}
+}
+
+@mixin body-2 {
+	font-family: sans-serif, 'Helvetica Neue', Helvetica, Arial;
+	font-size: 20px;
+	font-weight: 300;
+
+	@include desktop {
+		font-size: 30px;
+	}
+}
+
+@mixin body-3 {
+	font-family: sans-serif, 'Helvetica Neue', Helvetica, Arial;
+	font-size: 16px;
+	font-weight: 300;
+}
+
+@mixin body-4 {
+	font-family: sans-serif, 'Helvetica Neue', Helvetica, Arial;
+	font-size: 10px;
+	font-weight: 300;
+
+	@include desktop {
+		font-size: 14px;
+	}
+}
+
+@mixin body-5 {
+	font-family: sans-serif, 'Helvetica Neue', Helvetica, Arial;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+@mixin body-6 {
+	font-family: sans-serif, 'Helvetica Neue', Helvetica, Arial;
+	font-size: 10px;
+	font-weight: 400;
+}
+
+/*
+ * Wide screen Desktop (PC's)
+ */
+
+@mixin desktop-xl {
+	/* Medium devices (desktops, 1366px and up) */
+	@media only screen and (min-width: 1366px) {
+		@content;
+	}
+}
+
+/*
+ * Desktop (PC's)
+ */
+
+@mixin desktop {
+	/* Medium devices (desktops, 1024px and up) */
+	@media only screen and (min-width: 1024px) {
+		@content;
+	}
+}
+
+/*
+ * Tablet
+ */
+
+@mixin tablet {
+	/* Small devices (tablets, 768px and up) */
+	@media only screen and (min-width: 768px) {
+		@content;
+	}
+}
+
+/*
+ * Mobile
+ */
+
+@mixin mobile {
+	/* < 768px */
+	@media only screen and (max-width: 767px) {
+		@content;
+	}
+}
+
+@mixin contentWrap {
+	max-width: 1200px;
+	padding: 0 16px;
+	margin: 0 auto;
+
+	@include desktop {
+		padding: 0;
+	}
+}
+
+@mixin closeButton {
+	width: 16px;
+	height: 16px;
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	flex-shrink: 0;
+
+	&::before,
+	&::after {
+		content: '';
+		width: 2px;
+		height: 100%;
+		background-color: #9b9b9b;
+		position: absolute;
+		top: 0;
+		left: 50%;
+	}
+
+	&::before {
+		transform: rotate(45deg);
+	}
+
+	&::after {
+		right: 0;
+		transform: rotate(-45deg);
+	}
+}

@@ -1,0 +1,20 @@
+@import 'StyleSheets/base/_variables.scss';
+@import 'StyleSheets/config/_mixin.scss';
+
+.react-calendar--fixedTop {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: calc(100% + 10px);
+	max-width: none;
+	z-index: 1;
+}
+
+.react-calendar button,
+.react-calendar__month-view__weekdays__weekday {
+	@include body-5;
+}
+
+button.react-calendar__navigation__arrow {
+	@include heading-2;
+}

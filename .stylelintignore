@@ -1,0 +1,5 @@
+node_modules/
+eslintReport
+stylelintReport
+build/
+.DS_Store

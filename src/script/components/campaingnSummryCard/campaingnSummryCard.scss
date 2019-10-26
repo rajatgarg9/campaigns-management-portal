@@ -1,0 +1,75 @@
+@import 'StyleSheets/base/_variables.scss';
+@import 'StyleSheets/config/_mixin.scss';
+
+.cmpignSmryCrd {
+	border-radius: 10px;
+	box-shadow: 0 1px 7px 0 rgba($black, 0.4);
+	background-color: $white;
+	padding: 30px 25px;
+	width: calc(100% - 80px);
+	max-width: 90%;
+	position: relative;
+
+	&__closBtnWrap {
+		position: absolute;
+		top: 16px;
+		right: 22px;
+		background: transparent;
+		border: none;
+		outline: none;
+	}
+
+	&__closBtn {
+		@include closeButton;
+	}
+
+	&__hdng {
+		@include heading-2;
+	}
+
+	&__cntnt {
+		margin-top: 20px;
+		display: flex;
+	}
+
+	&__cmpignImgWrap {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		margin-right: 20px;
+		overflow: hidden;
+		flex-shrink: 0;
+	}
+
+	&__cmpignImg {
+		width: 100%;
+		height: 100%;
+	}
+
+	&__row {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__row:not(:first-child) {
+		margin-top: 10px;
+	}
+
+	&__rowHdng {
+		@include heading-3;
+	}
+
+	&__rowValue {
+		@include body-4;
+
+		margin-top: 3px;
+	}
+}
+
+@include desktop {
+	.cmpignSmryCrd {
+		padding: 30px;
+		min-height: 375px;
+		max-width: 510px;
+	}
+}

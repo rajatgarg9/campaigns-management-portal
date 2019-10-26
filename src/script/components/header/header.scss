@@ -1,0 +1,91 @@
+@import 'StyleSheets/base/_variables.scss';
+@import 'StyleSheets/config/_mixin.scss';
+
+.hadr {
+	background-color: $blue1;
+	color: $white;
+
+	&__contntWrap {
+		@include contentWrap;
+
+		display: flex;
+		justify-content: space-between;
+		padding: 0;
+	}
+
+	&__mainContnt {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex: 1;
+		padding: 20px;
+	}
+
+	&__leftSec {
+		display: flex;
+		align-items: center;
+	}
+
+	&__logoImgWrap {
+		width: 54px;
+		margin-right: 10px;
+		flex-shrink: 0;
+	}
+
+	&__logoImg {
+		width: 100%;
+	}
+
+	&__logoTxt {
+		@include body-1;
+
+		display: flex;
+		flex-direction: column;
+		text-align: right;
+	}
+
+	&__subTxt {
+		@include body-4;
+
+		margin-top: 2px;
+	}
+
+	&__rightSec {
+		display: flex;
+	}
+
+	&__appState {
+		@include body-1;
+	}
+
+	&__actionButton {
+		padding: 20px;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		background-color: $blue2;
+		border: none;
+		outline: none;
+		flex-shrink: 0;
+	}
+
+	&__actionButtonLne {
+		width: 32px;
+		height: 4px;
+		border-radius: 8px;
+		background-color: $white;
+		cursor: pointer;
+	}
+
+	&__actionButtonLne:not(:first-child) {
+		margin-top: 4px;
+	}
+}
+
+@include desktop {
+	.hadr {
+		&__logoImgWrap {
+			width: 70px;
+		}
+	}
+}
