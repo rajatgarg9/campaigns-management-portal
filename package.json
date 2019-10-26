@@ -2,6 +2,7 @@
   "name": "campaigns-management-portal",
   "version": "1.0.0",
   "description": "It will show all the campaigns and and also we can reschedule it.",
+  "homepage": "https://rajatgarg9.github.io/repository-name",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.config.dev.js",
@@ -9,7 +10,9 @@
     "eslint": "eslint '**/*.js' '**/*.json'  '**/*.jsx'  -o eslintReport",
     "eslintFix": "eslint '**/*.js' '**/*.json' '**/*.jsx' --fix",
     "stylelint": "stylelint '**/*.scss' > stylelintReport",
-    "stylelintFix": "stylelint '**/*.scss' --fix"
+    "stylelintFix": "stylelint '**/*.scss' --fix",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "husky": {
     "hooks": {
@@ -67,6 +70,7 @@
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
     "file-loader": "^4.2.0",
+    "gh-pages": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.0.9",
     "install": "^0.13.0",
